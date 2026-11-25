@@ -1,0 +1,24 @@
+{
+  "en": {
+    "dir": "ltr",
+    "home": "/",
+    "other": "ar",
+    "otherName": "العربية",
+    "howItWorks": "How It Works",
+    "deadlines": "Deadlines",
+    "faq": "FAQ",
+    "pricing": "Pricing",
+    "tagline": "UAE eInvoicing for"
+  },
+  "ar": {
+    "dir": "rtl",
+    "home": "/ar/",
+    "other": "en",
+    "otherName": "English",
+    "howItWorks": "كيف يعمل",
+    "deadlines": "المواعيد",
+    "faq": "الأسئلة الشائعة",
+    "pricing": "الأسعار",
+    "tagline": "الفوترة الإلكترونية في الإمارات لبرنامج"
+  }
+}

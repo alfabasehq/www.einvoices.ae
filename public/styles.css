@@ -1,0 +1,534 @@
+/* Written by hand so the site needs no CSS build step. Same structure as www.aussiebankfeeds.com,
+   with its own colours. */
+
+:root {
+    --bg: #f9fafb;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --text-muted: #4b5563;
+    --accent: #0f766e;
+    --accent-hover: #0d9488;
+    --accent-soft: #ccfbf1;
+    --accent-wash: #f0fdfa;
+    --success: #0d9488;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--text);
+    background: var(--bg);
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+a {
+    color: var(--accent);
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 72rem;
+    padding: 0 1.5rem;
+}
+
+/* Site header */
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    min-height: 3.75rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+}
+
+.site-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.site-nav a:hover {
+    color: var(--text);
+}
+
+.site-nav a.btn {
+    color: #fff;
+}
+
+/* Site footer */
+.site-footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.site-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-footer a {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--bg);
+}
+
+.btn-lg {
+    padding: 0.75rem 1.6rem;
+    font-size: 1.05rem;
+}
+
+/* Home page */
+.hero {
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+    background: linear-gradient(to bottom, var(--accent-wash), var(--surface));
+}
+
+.hero h1 {
+    margin: 0 auto 1.25rem;
+    max-width: 46rem;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    margin: 0 auto 2rem;
+    max-width: 40rem;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+.hero .hero-note {
+    margin: 1.25rem auto 0;
+    font-size: 0.9rem;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 40rem) {
+    .hero {
+        padding-top: 3rem;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+}
+
+.section {
+    padding: 3.5rem 0;
+}
+
+.section-alt {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 0 0 0.75rem;
+}
+
+.section-lead {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    color: var(--text-muted);
+}
+
+.section-title + .steps,
+.section-title + .feature-grid,
+.section-title + .built-for,
+.section-title + .faq,
+.section-lead + .deadlines,
+.section-lead + .price-card,
+.section-lead + .steps {
+    margin-top: 2.5rem;
+}
+
+/* How it works */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 2rem;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+}
+
+.steps li {
+    text-align: center;
+    counter-increment: step;
+}
+
+.steps li::before {
+    content: counter(step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.steps h3,
+.feature h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+}
+
+.steps p,
+.feature p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.25rem;
+}
+
+.feature,
+.built-for {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.built-for {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+    align-items: center;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem;
+}
+
+.built-for p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+}
+
+.built-for p:last-child {
+    margin-bottom: 0;
+}
+
+.checklist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.checklist li {
+    padding: 0.4rem 0;
+    padding-inline-start: 1.75rem;
+    position: relative;
+}
+
+.checklist li::before {
+    content: "✓";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--success);
+    font-weight: 700;
+}
+
+/* Closing call to action */
+.cta {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+}
+
+.cta h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.7rem;
+}
+
+.cta p {
+    margin: 0 0 2rem;
+    color: var(--accent-soft);
+}
+
+.cta .btn {
+    background: #fff;
+    color: var(--accent);
+}
+
+.cta .btn:hover {
+    background: var(--accent-wash);
+}
+
+/* FAQ */
+.faq {
+    max-width: 46rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.faq summary {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq details p {
+    margin: 0.75rem 0 0;
+    color: var(--text-muted);
+}
+
+/* Text pages (not found) */
+.not-found {
+    background: none;
+}
+
+.hero .hero-kicker {
+    margin: 0 auto 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+}
+
+.section-note {
+    max-width: 44rem;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+/* Deadlines */
+.deadlines {
+    max-width: 44rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.deadlines li {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0.25rem 1.5rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-inline-start: 4px solid var(--accent);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.deadline-date {
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.deadlines h3 {
+    margin: 0 0 0.2rem;
+    font-size: 1rem;
+}
+
+.deadlines p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+@media (max-width: 34rem) {
+    .deadlines li {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Pricing */
+.price-card {
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.25rem 2rem;
+    text-align: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: 12px;
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;
+}
+
+.price-currency {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.price-amount {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.price-unit {
+    margin: 0.6rem 0 1.5rem;
+    color: var(--text-muted);
+}
+
+.price-card .checklist {
+    margin-bottom: 1.75rem;
+    text-align: start;
+}
+
+.price-card .btn {
+    display: block;
+}
+
+.not-found-other {
+    margin-top: 3.5rem;
+}
+
+/* Arabic (/ar/). Letter spacing breaks the joins between Arabic letters, and the script needs more
+   room between lines. */
+:lang(ar) {
+    letter-spacing: 0 !important;
+}
+
+html:lang(ar) body,
+.not-found-other {
+    font-family: "Segoe UI", "Geeza Pro", "Noto Sans Arabic", Tahoma, system-ui, sans-serif;
+    line-height: 1.8;
+}
+
+:lang(ar) h1,
+:lang(ar) h2,
+:lang(ar) h3 {
+    line-height: 1.5;
+}
+
+/* Arabic puts the amount before the currency: "59 درهمًا". */
+[dir="rtl"] .price {
+    flex-direction: row-reverse;
+}

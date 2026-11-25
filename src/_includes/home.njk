@@ -1,0 +1,112 @@
+---
+layout: layout.njk
+wide: true
+---
+{#
+    The home page. Its wording comes from the front matter of the page that uses this layout
+    (src/index.njk in English, src/ar/index.njk in Arabic), so the two languages always have the same
+    structure. Text may hold HTML, and "{price}" in it becomes the price in site.json.
+#}
+{%- macro t(text) %}{{ text | replace("{price}", site.price) | safe }}{% endmacro %}
+<section class="hero">
+    <p class="hero-kicker">{{ t(hero.kicker) }}</p>
+    <h1>{{ t(hero.title) }}</h1>
+    <p>{{ t(hero.text) }}</p>
+    <div class="hero-actions">
+        <a href="#pricing" class="btn btn-lg">{{ t(hero.pricing) }}</a>
+        <a href="#how-it-works" class="btn btn-secondary btn-lg">{{ t(how.title) }}</a>
+    </div>
+    <p class="hero-note">{{ t(hero.note) }}</p>
+</section>
+
+<section class="section" id="how-it-works">
+    <div class="container">
+        <h2 class="section-title">{{ t(how.title) }}</h2>
+        <p class="section-lead">{{ t(how.lead) }}</p>
+        <ol class="steps">
+            {%- for step in how.steps %}
+            <li>
+                <h3>{{ t(step.title) }}</h3>
+                <p>{{ t(step.description) }}</p>
+            </li>
+            {%- endfor %}
+        </ol>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">{{ t(features.title) }}</h2>
+        <div class="feature-grid">
+            {%- for feature in features.list %}
+            <div class="feature">
+                <h3>{{ t(feature.title) }}</h3>
+                <p>{{ t(feature.description) }}</p>
+            </div>
+            {%- endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section" id="deadlines">
+    <div class="container">
+        <h2 class="section-title">{{ t(deadlines.title) }}</h2>
+        <p class="section-lead">{{ t(deadlines.lead) }}</p>
+        <ol class="deadlines">
+            {%- for deadline in deadlines.list %}
+            <li>
+                <div class="deadline-date">{{ t(deadline.date) }}</div>
+                <div>
+                    <h3>{{ t(deadline.who) }}</h3>
+                    <p>{{ t(deadline.what) }}</p>
+                </div>
+            </li>
+            {%- endfor %}
+        </ol>
+        <p class="section-note">{{ t(deadlines.note) }}</p>
+    </div>
+</section>
+
+<section class="section section-alt" id="pricing">
+    <div class="container">
+        <h2 class="section-title">{{ t(pricing.title) }}</h2>
+        <p class="section-lead">{{ t(pricing.lead) }}</p>
+        <div class="price-card">
+            <div class="price">
+                <span class="price-currency">{{ t(pricing.currency) }}</span>
+                <span class="price-amount">{{ site.price }}</span>
+            </div>
+            <p class="price-unit">{{ t(pricing.unit) }}</p>
+            <ul class="checklist">
+                {%- for item in pricing.included %}
+                <li>{{ t(item) }}</li>
+                {%- endfor %}
+            </ul>
+            <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(cta.button) }}</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="faq">
+    <div class="container">
+        <h2 class="section-title">{{ t(faq.title) }}</h2>
+        <div class="faq">
+            {%- for item in faq.list %}
+            <details>
+                <summary>{{ t(item.question) }}</summary>
+                <p>{{ t(item.answer) }}</p>
+            </details>
+            {%- endfor %}
+            <details>
+                <summary>{{ t(faq.help) }}</summary>
+                <p>{{ t(faq.helpAnswer) }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>{{ t(cta.title) }}</h2>
+    <p>{{ t(cta.text) }}</p>
+    <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(cta.button) }}</a>
+</section>

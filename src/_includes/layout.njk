@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{#
+    Front matter read here:
+      title        shown as "<title> — eInvoices.ae"
+      metaTitle    replaces the whole <title> when the page needs different wording
+      description  meta description, plain text
+      lang         "en" (the default) or "ar"; picks the header and footer wording from
+                   _data/strings.json and the direction of the page
+      alternate    address of the same page in the other language, when there is one
+      noindex      keeps the page out of search engines and out of sitemap.xml
+      mainClass    extra classes on <main>, which is a .container unless `wide` is set
+      wide         the page lays out its own full-width sections
+#}
+{%- set lang = lang or "en" %}
+{%- set s = strings[lang] %}
+{%- set pageTitle = metaTitle or ((title + " — " + site.name) if title else site.name) %}
+{%- set pageUrl = site.url + page.url %}
+<html lang="{{ lang }}" dir="{{ s.dir }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pageTitle }}</title>
+    {%- if description %}
+    <meta name="description" content="{{ description }}">
+    {%- endif %}
+    {%- if noindex %}
+    <meta name="robots" content="noindex, follow">
+    {%- else %}
+    <link rel="canonical" href="{{ pageUrl }}">
+    {%- if alternate %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ pageUrl }}">
+    <link rel="alternate" hreflang="{{ s.other }}" href="{{ site.url }}{{ alternate }}">
+    {%- endif %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ metaTitle or title or site.name }}">
+    {%- if description %}
+    <meta property="og:description" content="{{ description }}">
+    {%- endif %}
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.image }}">
+    <meta name="twitter:card" content="summary">
+    {%- endif %}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="{{ s.home }}" class="brand"><span class="brand-mark">e</span>{{ site.name }}</a>
+            <nav class="site-nav">
+                <a href="{{ s.home }}#how-it-works">{{ s.howItWorks }}</a>
+                <a href="{{ s.home }}#deadlines">{{ s.deadlines }}</a>
+                <a href="{{ s.home }}#faq">{{ s.faq }}</a>
+                <a href="{{ alternate or strings[s.other].home }}" lang="{{ s.other }}" hreflang="{{ s.other }}">{{ s.otherName }}</a>
+                <a href="{{ s.home }}#pricing" class="btn">{{ s.pricing }}</a>
+            </nav>
+        </div>
+    </header>
+
+    <main{% if not wide %} class="container{% if mainClass %} {{ mainClass }}{% endif %}"{% endif %}>
+        {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div>{{ site.name }} — {{ s.tagline }} <a href="https://www.manager.io">Manager.io</a></div>
+            <div><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+        </div>
+    </footer>
+</body>
+</html>
