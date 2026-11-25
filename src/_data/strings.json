@@ -8,7 +8,8 @@
     "deadlines": "Deadlines",
     "faq": "FAQ",
     "pricing": "Pricing",
-    "tagline": "UAE eInvoicing for"
+    "tagline": "UAE eInvoicing for",
+    "operatedBy": "Operated by"
   },
   "ar": {
     "dir": "rtl",
@@ -19,6 +20,7 @@
     "deadlines": "المواعيد",
     "faq": "الأسئلة الشائعة",
     "pricing": "الأسعار",
-    "tagline": "الفوترة الإلكترونية في الإمارات لبرنامج"
+    "tagline": "الفوترة الإلكترونية في الإمارات لبرنامج",
+    "operatedBy": "تشغّله شركة"
   }
 }
