@@ -9,6 +9,9 @@ wide: true
 #}
 {%- macro t(text) %}{{ text | replace("{price}", site.price) | safe }}{% endmacro %}
 <section class="hero">
+    {%- if soon %}
+    <p class="soon-badge">{{ t(soon.badge) }}</p>
+    {%- endif %}
     <p class="hero-kicker">{{ t(hero.kicker) }}</p>
     <h1>{{ t(hero.title) }}</h1>
     <p>{{ t(hero.text) }}</p>
@@ -82,7 +85,10 @@ wide: true
                 <li>{{ t(item) }}</li>
                 {%- endfor %}
             </ul>
-            <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(cta.button) }}</a>
+            {%- if soon %}
+            <p class="soon-note">{{ t(soon.note) }}</p>
+            {%- endif %}
+            <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(soon.button if soon else cta.button) }}</a>
         </div>
     </div>
 </section>
@@ -107,6 +113,6 @@ wide: true
 
 <section class="cta">
     <h2>{{ t(cta.title) }}</h2>
-    <p>{{ t(cta.text) }}</p>
-    <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(cta.button) }}</a>
+    <p>{{ t(cta.text) }}{% if soon %}<br>{{ t(soon.note) }}{% endif %}</p>
+    <a href="mailto:{{ site.email }}" class="btn btn-lg">{{ t(soon.button if soon else cta.button) }}</a>
 </section>

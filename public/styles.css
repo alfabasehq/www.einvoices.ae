@@ -407,6 +407,25 @@ a {
     color: var(--accent);
 }
 
+/* Shown while the extension is not released yet */
+.hero .soon-badge {
+    display: inline-block;
+    margin: 0 auto 1.5rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.soon-note {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
 .section-note {
     max-width: 44rem;
     margin: 2rem auto 0;

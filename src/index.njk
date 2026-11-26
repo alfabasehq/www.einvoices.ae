@@ -2,8 +2,14 @@
 layout: home.njk
 alternate: /ar/
 metaTitle: eInvoices.ae — UAE eInvoicing for Manager.io
-description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 59 per month per legal entity.
+description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 59 per month per legal entity. Coming December 2026.
 # The page itself is src/_includes/home.njk. The Arabic wording is in src/ar/index.njk: change both together.
+# The extension is not released yet. Once it is, remove `soon` and its FAQ entry; the buttons then
+# read cta.button again.
+soon:
+  badge: Coming December 2026
+  note: The extension is not available yet. It will be released in December 2026.
+  button: Contact Us
 hero:
   kicker: For businesses in the United Arab Emirates
   title: UAE eInvoicing for <span>Manager.io</span>
@@ -73,6 +79,10 @@ pricing:
 faq:
   title: Frequently Asked Questions
   list:
+    - question: When will the extension be available?
+      answer: >-
+        In December 2026, before the first mandatory date of 1 January 2027. It cannot be installed
+        yet.
     - question: What is the UAE eInvoicing mandate?
       answer: >-
         Businesses in the UAE have to exchange invoices as structured electronic documents instead of
