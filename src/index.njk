@@ -2,7 +2,7 @@
 layout: home.njk
 alternate: /ar/
 metaTitle: eInvoices.ae — UAE eInvoicing for Manager.io
-description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 59 per month per legal entity, 100 documents included. Free to try now in the sandbox.
+description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 99 per month for your first legal entity and AED 49 for each further one, with 100 documents a month included across all of them. Free to try now in the sandbox.
 # The page itself is src/_includes/home.njk. The Arabic wording is in src/ar/index.njk: change both together.
 # The extension is open for testing in the sandbox only; live sending is not released yet. Once it is,
 # remove `trial` and its two FAQ entries, and reword hero.note and the first step. The buttons then
@@ -18,7 +18,7 @@ hero:
     Send and receive e-invoices that meet the UAE eInvoicing mandate, directly from
     <a href="https://www.manager.io">Manager.io</a> accounting software.
   pricing: See Pricing
-  note: Free to test in the sandbox. AED {price} per month per legal entity once live.
+  note: Free to test in the sandbox. AED {price} per month once live, and AED {additional} for each further legal entity.
 how:
   title: How It Works
   lead: >-
@@ -71,12 +71,14 @@ deadlines:
     that apply to you with the <a href="https://mof.gov.ae">Ministry of Finance</a>.
 pricing:
   title: Pricing
-  lead: One price for each legal entity that issues invoices, with {documents} documents a month included.
+  lead: A lower price for each legal entity after your first, with {documents} documents a month included across all of them.
   currency: AED
-  unit: per month, per legal entity
+  unit: per month, for your first legal entity
   included:
     - One legal entity, sending and receiving
-    - "{documents} documents per month included"
+    - AED {discount} off per month for your first {months} months
+    - AED {additional} per month for each further legal entity
+    - "{documents} documents per month included, shared across your legal entities"
     - AED {extra} for each further document
     - Installs from the Extensions screen in Manager
     - E-invoices in the PINT AE format
@@ -119,14 +121,19 @@ faq:
         on the Peppol network. You do not need a separate contract with a provider.
     - question: Are there charges per document?
       answer: >-
-        AED {price} per month covers {documents} documents for one legal entity. Each further document
-        in that month is AED {extra}. An invoice or a credit note, sent or received, counts as one
+        The monthly price covers {documents} documents, shared across all your legal entities. Each
+        further document in that month is AED {extra}. An invoice or a credit note, sent or received, counts as one
         document. There are no other fees.
+    - question: Is there an introductory discount?
+      answer: >-
+        Yes. Your first legal entity is AED {discount} per month cheaper for your first {months}
+        months. After that it is AED {price} per month.
     - question: What counts as a legal entity?
       answer: >-
         Each company that issues invoices under its own name and Tax Registration Number. If you keep
-        the books of three companies in Manager, that is three legal entities, at AED {price} per month
-        each.
+        the books of three companies in Manager, that is three legal entities: AED {price} per month for the
+        first and AED {additional} per month for each of the other two. The
+        {documents} included documents are shared between them.
     - question: Do I need to change how I use Manager?
       answer: >-
         No. You keep creating invoices in Manager as you do now. The extension turns them into
@@ -136,6 +143,6 @@ faq:
   helpAnswer: Email
 cta:
   title: Be ready before your deadline
-  text: UAE eInvoicing in Manager for AED {price} per month per legal entity.
+  text: UAE eInvoicing in Manager from AED {price} per month.
   button: Get Started
 ---
