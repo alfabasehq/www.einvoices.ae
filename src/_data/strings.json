@@ -2,6 +2,7 @@
   "en": {
     "dir": "ltr",
     "home": "/",
+    "app": "https://app.einvoices.ae/",
     "other": "ar",
     "otherName": "العربية",
     "howItWorks": "How It Works",
@@ -14,6 +15,7 @@
   "ar": {
     "dir": "rtl",
     "home": "/ar/",
+    "app": "https://app.einvoices.ae/?lang=ar",
     "other": "en",
     "otherName": "English",
     "howItWorks": "كيف يعمل",

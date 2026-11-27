@@ -24,7 +24,7 @@ Pushing to `main` builds and deploys the site (`.github/workflows/pages.yml`).
 | `src/_includes/home.njk` | The home page both of those fill in: hero, how it works, features, deadlines, pricing and FAQ |
 | `src/404.njk` | Not-found page, in both languages because GitHub Pages serves one file for every missing address |
 | `src/_includes/layout.njk` | Page shell: head, header and footer |
-| `src/_data/strings.json` | Header and footer wording in each language |
+| `src/_data/strings.json` | Header and footer wording in each language, and the address of the app (`app`) the buttons open |
 | `src/_data/site.json` | Address of this site (`url`), the company behind it (`company`), the support email, and the monthly price in AED (`price`) |
 | `public/` | Files copied to the site as they are: stylesheet, icons, `robots.txt` |
 | `eleventy.config.js` | Build configuration |
