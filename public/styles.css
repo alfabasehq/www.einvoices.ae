@@ -244,9 +244,9 @@ a {
 /* How it works */
 .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: 2rem;
-    max-width: 56rem;
+    max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0;

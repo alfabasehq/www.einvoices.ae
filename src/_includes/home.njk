@@ -12,21 +12,21 @@ wide: true
     "{intro}" the monthly price less that discount, and "{app}"
     the address of the app in this page's language (strings.json).
 
-    `trial` is set while the app is open for testing only: it adds the badge and the note, and names
-    the buttons that open the app. Without it they read cta.button.
+    The buttons open the app, where a customer signs in, subscribes and enrols legal entities. They
+    read cta.button, except the one on the price card (pricing.button).
 #}
 {%- set app = strings[lang or "en"].app %}
 {%- set intro = (site.price | int) - (site.discount | int) %}
 {%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{additional}", site.additional) | replace("{discount}", site.discount) | replace("{months}", site.months) | replace("{intro}", intro) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
 <section class="hero">
-    {%- if trial %}
-    <p class="soon-badge">{{ t(trial.badge) }}</p>
+    {%- if hero.badge %}
+    <p class="soon-badge">{{ t(hero.badge) }}</p>
     {%- endif %}
     <p class="hero-kicker">{{ t(hero.kicker) }}</p>
     <h1>{{ t(hero.title) }}</h1>
     <p>{{ t(hero.text) }}</p>
     <div class="hero-actions">
-        <a href="{{ app }}" class="btn btn-lg">{{ t(trial.button if trial else cta.button) }}</a>
+        <a href="{{ app }}" class="btn btn-lg">{{ t(cta.button) }}</a>
         <a href="#pricing" class="btn btn-secondary btn-lg">{{ t(hero.pricing) }}</a>
     </div>
     <p class="hero-note">{{ t(hero.note) }}</p>
@@ -116,10 +116,10 @@ wide: true
                 <li>{{ t(item) }}</li>
                 {%- endfor %}
             </ul>
-            {%- if trial %}
-            <p class="soon-note">{{ t(trial.note) }}</p>
+            {%- if pricing.note %}
+            <p class="soon-note">{{ t(pricing.note) }}</p>
             {%- endif %}
-            <a href="{{ app }}" class="btn btn-lg">{{ t(trial.button if trial else cta.button) }}</a>
+            <a href="{{ app }}" class="btn btn-lg">{{ t(pricing.button or cta.button) }}</a>
         </div>
     </div>
 </section>
@@ -144,6 +144,6 @@ wide: true
 
 <section class="cta">
     <h2>{{ t(cta.title) }}</h2>
-    <p>{{ t(cta.text) }}{% if trial %}<br>{{ t(trial.note) }}{% endif %}</p>
-    <a href="{{ app }}" class="btn btn-lg">{{ t(trial.button if trial else cta.button) }}</a>
+    <p>{{ t(cta.text) }}{% if cta.note %}<br>{{ t(cta.note) }}{% endif %}</p>
+    <a href="{{ app }}" class="btn btn-lg">{{ t(cta.button) }}</a>
 </section>

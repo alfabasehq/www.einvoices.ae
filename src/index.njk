@@ -2,37 +2,42 @@
 layout: home.njk
 alternate: /ar/
 metaTitle: eInvoices.ae — UAE eInvoicing for Manager.io
-description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 99 per month for your first legal entity and AED 49 for each further one, with 100 documents a month included across all of them. Free to try now in the sandbox.
+description: An extension for Manager.io accounting software that sends your invoices and credit notes as e-invoices under the UAE eInvoicing mandate. AED 99 per month for your first legal entity and AED 49 for each further one, with 100 documents a month included across all of them. Free to test in the sandbox.
 # The page itself is src/_includes/home.njk. The Arabic wording is in src/ar/index.njk: change both together.
-# The extension is open for testing in the sandbox only; live sending is not released yet. Once it is,
-# remove `trial` and its two FAQ entries, and reword hero.note and the first step. The buttons then
-# read cta.button.
-trial:
-  badge: Sandbox trial now open
-  note: Testing in the sandbox is free. Live sending starts in December 2026.
-  button: Try It in the Sandbox
+# The buttons open the app (`app` in src/_data/strings.json). Opened there, outside Manager, the app is
+# where a customer signs in, subscribes and enrols legal entities; sending is done in the extension
+# inside Manager. The app sends only: say nothing here about receiving until it does.
 hero:
+  badge: Live sending now open
   kicker: For businesses in the United Arab Emirates
   title: UAE eInvoicing for <span>Manager.io</span>
   text: >-
-    Send and receive e-invoices that meet the UAE eInvoicing mandate, directly from
+    Send your invoices and credit notes as e-invoices that meet the UAE eInvoicing mandate, directly from
     <a href="https://www.manager.io">Manager.io</a> accounting software.
   pricing: See Pricing
-  note: Free to test in the sandbox. Once live, AED {intro} per month for your first {months} months, then AED {price}.
+  note: Free to test in the sandbox. Live sending is AED {intro} per month for your first {months} months, then AED {price}.
 how:
   title: How It Works
   lead: >-
-    eInvoices.ae is an extension for Manager. Once it is installed, your invoices are exchanged as
-    e-invoices instead of PDFs.
+    eInvoices.ae is an extension for Manager. Test it for free with your own invoices, then subscribe
+    to send them for real.
   steps:
-    - title: Open the Extension
+    - title: Try It in Manager
       description: >-
-        Open the Extensions screen in Manager and choose eInvoices.ae, then sign in or create an
-        account.
-    - title: Enter Your Business Details
-      description: Confirm the legal entity and Tax Registration Number your invoices are issued under.
-    - title: Invoice as Usual
-      description: Create invoices in Manager the way you already do. They go out as compliant e-invoices.
+        Open the Extensions screen in Manager, choose eInvoices.ae and create an account. Send your
+        own invoices as test e-invoices in the sandbox, free.
+    - title: Subscribe and Enrol
+      description: >-
+        Sign in at <a href="{app}">app.einvoices.ae</a>, subscribe for the number of legal entities
+        that will send, and enrol each one by its TIN.
+    - title: Appoint the Provider
+      description: >-
+        Register the TIN with A-Cube from the same page, then finish onboarding in EmaraTax by
+        choosing A-Cube as your e-invoicing service provider.
+    - title: Switch to Live and Send
+      description: >-
+        Back in Manager, switch the extension to Live and press Send beside an invoice or credit
+        note. It goes to your customer as a compliant e-invoice.
 features:
   title: What the Extension Does
   list:
@@ -44,10 +49,14 @@ features:
       description: >-
         E-invoices travel through an Accredited Service Provider on the Peppol network, as the UAE
         system requires, and are reported to the Federal Tax Authority.
-    - title: Send and Receive
+    - title: Status Kept in Manager
       description: >-
-        Issue e-invoices to your customers and receive your suppliers' e-invoices, without leaving
-        Manager.
+        Each invoice and credit note shows whether it was sent, delivered, accepted or rejected. The
+        record is kept on the document in Manager.
+    - title: A Free Sandbox
+      description: >-
+        Send test e-invoices from your own Manager data for as long as you like. Nothing reaches your
+        customers or the Federal Tax Authority.
 deadlines:
   title: When eInvoicing Becomes Mandatory
   lead: >-
@@ -84,24 +93,33 @@ pricing:
     - label: Each further document
       value: AED {extra}
   included:
-    - Sending and receiving
+    - Sending invoices and credit notes
     - E-invoices in the PINT AE format
+    - Free testing in the sandbox
     - Support by email
+  note: Testing in the sandbox is free. You pay only to send live.
+  button: Subscribe
 faq:
   title: Frequently Asked Questions
   list:
-    - question: Can I try it now?
+    - question: Can I try it before I pay?
       answer: >-
-        Yes. The extension is open for testing at <a href="{app}">app.einvoices.ae</a>. Open the
-        Extensions screen in an up-to-date copy of Manager, choose eInvoices.ae and create an account.
-        You can then send your own sales invoices and credit notes as test e-invoices in the sandbox.
-        They go from a test sender to a test receiver, so nothing reaches your customers or the
-        Federal Tax Authority. Testing is free.
-    - question: When can I send real e-invoices?
+        Yes. Open the Extensions screen in an up-to-date copy of Manager, choose eInvoices.ae and
+        create an account. The extension starts in the sandbox, where you can send your own sales
+        invoices and credit notes as test e-invoices. They go from a test sender to a test receiver,
+        so nothing reaches your customers or the Federal Tax Authority. Testing is free and needs no
+        subscription.
+    - question: How do I start sending real e-invoices?
       answer: >-
-        In December 2026, before the first mandatory date of 1 January 2027. Until then the extension
-        works in the sandbox only, and the trial covers sending; receiving comes with the live
-        release.
+        Sign in at <a href="{app}">app.einvoices.ae</a> with the same account and subscribe for the
+        number of legal entities that will send. Enrol each one by its TIN and register that TIN with
+        A-Cube from the same page. Then finish onboarding in EmaraTax, by choosing “PLATFORM ACUBE
+        TECHNOLOGIES L.L.C” in the list of e-invoicing service providers. Once the page shows the
+        legal entity as active, switch the extension to Live in Manager and send.
+    - question: Can I receive my suppliers' e-invoices?
+      answer: >-
+        Not yet. Today the extension sends sales invoices and credit notes. Receiving is not available
+        yet.
     - question: What is Manager.io?
       answer: >-
         <a href="https://www.manager.io">Manager.io</a> is accounting software for small businesses.
@@ -122,12 +140,13 @@ faq:
       answer: >-
         No. eInvoices.ae is the extension that connects Manager to one. Your e-invoices are sent and
         received through <a href="https://www.acubeapi.com">A-Cube</a>, an Accredited Service Provider
-        on the Peppol network. You do not need a separate contract with a provider.
+        on the Peppol network. You appoint A-Cube as your service provider in EmaraTax; you do not need
+        a separate contract with it.
     - question: Are there charges per document?
       answer: >-
         The monthly price covers {documents} documents, shared across all your legal entities. Each
-        further document in that month is AED {extra}. An invoice or a credit note, sent or received, counts as one
-        document. There are no other fees.
+        further document in that month is AED {extra}. Each invoice or credit note you send live counts as one
+        document. Test documents sent in the sandbox are not counted. There are no other fees.
     - question: Is there an introductory discount?
       answer: >-
         Yes. Your first legal entity is AED {discount} per month cheaper for your first {months}
@@ -137,16 +156,23 @@ faq:
         Each company that issues invoices under its own name and Tax Registration Number. If you keep
         the books of three companies in Manager, that is three legal entities: AED {price} per month for the
         first and AED {additional} per month for each of the other two. The
-        {documents} included documents are shared between them.
+        {documents} included documents are shared between them. A legal entity is identified by its TIN,
+        and once enrolled it keeps its place on your subscription for 30 days before another can take it.
     - question: Do I need to change how I use Manager?
       answer: >-
-        No. You keep creating invoices in Manager as you do now. The extension turns them into
-        e-invoices and sends them. It opens inside Manager, so there is no separate portal to work
-        in.
+        No. You keep creating invoices in Manager as you do now. To send one, open the extension in
+        Manager and press Send beside it. The extension opens inside Manager; only your subscription
+        is managed at <a href="{app}">app.einvoices.ae</a>.
+    - question: How do I change or cancel my subscription?
+      answer: >-
+        Sign in at <a href="{app}">app.einvoices.ae</a>. There you can change the number of legal
+        entities your subscription covers, and Manage billing opens the page where you update your
+        card, see your invoices and cancel.
   help: How do I get help?
   helpAnswer: Email
 cta:
   title: Be ready before your deadline
   text: UAE eInvoicing in Manager from AED {price} per month.
   button: Get Started
+  note: Testing in the sandbox is free.
 ---
