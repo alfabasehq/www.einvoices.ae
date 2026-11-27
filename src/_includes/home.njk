@@ -5,14 +5,15 @@ wide: true
 {#
     The home page. Its wording comes from the front matter of the page that uses this layout
     (src/index.njk in English, src/ar/index.njk in Arabic), so the two languages always have the same
-    structure. Text may hold HTML; "{price}" in it becomes the price in site.json and "{app}" the
-    address of the app in this page's language (strings.json).
+    structure. Text may hold HTML; "{price}", "{documents}" and "{extra}" in it become the monthly
+    price, the documents it includes and the price of each further document (site.json), and "{app}"
+    the address of the app in this page's language (strings.json).
 
     `trial` is set while the app is open for testing only: it adds the badge and the note, and names
     the buttons that open the app. Without it they read cta.button.
 #}
 {%- set app = strings[lang or "en"].app %}
-{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{app}", app) | safe }}{% endmacro %}
+{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
 <section class="hero">
     {%- if trial %}
     <p class="soon-badge">{{ t(trial.badge) }}</p>

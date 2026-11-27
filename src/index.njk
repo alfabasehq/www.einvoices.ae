@@ -2,7 +2,7 @@
 layout: home.njk
 alternate: /ar/
 metaTitle: eInvoices.ae — UAE eInvoicing for Manager.io
-description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 59 per month per legal entity. Free to try now in the sandbox.
+description: An extension for Manager.io accounting software that sends and receives e-invoices under the UAE eInvoicing mandate. AED 59 per month per legal entity, 100 documents included. Free to try now in the sandbox.
 # The page itself is src/_includes/home.njk. The Arabic wording is in src/ar/index.njk: change both together.
 # The extension is open for testing in the sandbox only; live sending is not released yet. Once it is,
 # remove `trial` and its two FAQ entries, and reword hero.note and the first step. The buttons then
@@ -71,11 +71,13 @@ deadlines:
     that apply to you with the <a href="https://mof.gov.ae">Ministry of Finance</a>.
 pricing:
   title: Pricing
-  lead: One price, charged for each legal entity that issues invoices.
+  lead: One price for each legal entity that issues invoices, with {documents} documents a month included.
   currency: AED
   unit: per month, per legal entity
   included:
     - One legal entity, sending and receiving
+    - "{documents} documents per month included"
+    - AED {extra} for each further document
     - Installs from the Extensions screen in Manager
     - E-invoices in the PINT AE format
     - Support by email
@@ -104,6 +106,16 @@ faq:
         It depends on your revenue. Businesses with revenue of AED 50 million or more start on
         1 January 2027, and other businesses on 1 July 2027. See the <a href="#deadlines">deadlines</a>
         above.
+    - question: Is eInvoices.ae an Accredited Service Provider?
+      answer: >-
+        No. eInvoices.ae is the extension that connects Manager to one. Your e-invoices are sent and
+        received through <a href="https://www.acubeapi.com">A-Cube</a>, an Accredited Service Provider
+        on the Peppol network. You do not need a separate contract with a provider.
+    - question: Are there charges per document?
+      answer: >-
+        AED {price} per month covers {documents} documents for one legal entity. Each further document
+        in that month is AED {extra}. An invoice or a credit note, sent or received, counts as one
+        document. There are no other fees.
     - question: What counts as a legal entity?
       answer: >-
         Each company that issues invoices under its own name and Tax Registration Number. If you keep
@@ -112,7 +124,8 @@ faq:
     - question: Do I need to change how I use Manager?
       answer: >-
         No. You keep creating invoices in Manager as you do now. The extension turns them into
-        e-invoices and sends them.
+        e-invoices and sends them. It opens inside Manager, so there is no separate portal to work
+        in.
   help: How do I get help?
   helpAnswer: Email
 cta:
