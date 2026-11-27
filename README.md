@@ -40,7 +40,7 @@ logical properties (`padding-inline-start`, not `padding-left`) wherever a side 
 stylesheet serves both directions.
 
 The price is `price` in `src/_data/site.json`: write `{price}` in home page wording and it is filled
-in, and likewise `{additional}`, `{documents}`, `{extra}`, `{discount}` and `{months}`. The one exception is `description` in the front matter
+in, and likewise `{additional}`, `{documents}`, `{extra}`, `{discount}` and `{months}`. `{intro}` is the price less the discount. The one exception is `description` in the front matter
 of the two home pages, where the numbers are typed out.
 
 ## Mandate dates

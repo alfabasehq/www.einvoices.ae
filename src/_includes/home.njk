@@ -8,14 +8,16 @@ wide: true
     structure. Text may hold HTML; "{price}", "{additional}", "{documents}" and "{extra}" in it become
     the monthly price for the first legal entity, the monthly price for each further one, the
     documents included across all of a customer's legal entities and the price of each further document, and "{discount}" and "{months}" the
-    introductory monthly discount on the first legal entity and the months it lasts (site.json), and "{app}"
+    introductory monthly discount on the first legal entity and the months it lasts (site.json),
+    "{intro}" the monthly price less that discount, and "{app}"
     the address of the app in this page's language (strings.json).
 
     `trial` is set while the app is open for testing only: it adds the badge and the note, and names
     the buttons that open the app. Without it they read cta.button.
 #}
 {%- set app = strings[lang or "en"].app %}
-{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{additional}", site.additional) | replace("{discount}", site.discount) | replace("{months}", site.months) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
+{%- set intro = (site.price | int) - (site.discount | int) %}
+{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{additional}", site.additional) | replace("{discount}", site.discount) | replace("{months}", site.months) | replace("{intro}", intro) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
 <section class="hero">
     {%- if trial %}
     <p class="soon-badge">{{ t(trial.badge) }}</p>
@@ -92,7 +94,7 @@ wide: true
                 <span class="price-currency">{{ t(pricing.currency) }}</span>
                 {%- if site.discount %}
                 <s class="price-was">{{ site.price }}</s>
-                <span class="price-amount">{{ (site.price | int) - (site.discount | int) }}</span>
+                <span class="price-amount">{{ intro }}</span>
                 {%- else %}
                 <span class="price-amount">{{ site.price }}</span>
                 {%- endif %}
