@@ -25,7 +25,7 @@ Pushing to `main` builds and deploys the site (`.github/workflows/pages.yml`).
 | `src/404.njk` | Not-found page, in both languages because GitHub Pages serves one file for every missing address |
 | `src/_includes/layout.njk` | Page shell: head, header and footer |
 | `src/_data/strings.json` | Header and footer wording in each language, the address of the app (`app`) the buttons open, and the wording of the header's Sign In button (`signIn`) |
-| `src/_data/site.json` | Address of this site (`url`), the company behind it (`company`), the support email, the monthly price in AED for the first legal entity (`price`) and for each further one (`additional`), the documents included across all of a customer's legal entities (`documents`) the price of each further one (`extra`), and the introductory discount in AED per month on the first legal entity (`discount`) with the months it lasts (`months`) |
+| `src/_data/site.json` | Address of this site (`url`), the company behind it (`company`), the support email, the monthly price in AED for the first legal entity (`price`) and for each further one (`additional`), the documents included across all of a customer's legal entities (`documents`) and the price of each further one (`extra`) |
 | `public/` | Files copied to the site as they are: stylesheet, icons, `robots.txt` |
 | `eleventy.config.js` | Build configuration |
 
@@ -40,7 +40,7 @@ logical properties (`padding-inline-start`, not `padding-left`) wherever a side 
 stylesheet serves both directions.
 
 The price is `price` in `src/_data/site.json`: write `{price}` in home page wording and it is filled
-in, and likewise `{additional}`, `{documents}`, `{extra}`, `{discount}` and `{months}`. `{intro}` is the price less the discount. The one exception is `description` in the front matter
+in, and likewise `{additional}`, `{documents}` and `{extra}`. The one exception is `description` in the front matter
 of the two home pages, where the numbers are typed out.
 
 ## Mandate dates

@@ -516,36 +516,6 @@ a {
     color: var(--text-muted);
 }
 
-/* Introductory discount: a badge above the price, the full price crossed out beside the discounted
-   one, and what it becomes afterwards. */
-.price-badge {
-    display: inline-block;
-    margin: 0 0 1.25rem;
-    padding: 0.3rem 0.9rem;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-.price-was {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-decoration-thickness: 2px;
-}
-
-.price-was + .price-amount {
-    color: var(--accent);
-}
-
-.price-then {
-    margin: 0.2rem 0 0;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
 /* The other prices, one to a line: what it is on one side, the amount on the other. */
 .price-rows {
     margin: 1.5rem 0 1.25rem;

@@ -7,17 +7,14 @@ wide: true
     (src/index.njk in English, src/ar/index.njk in Arabic), so the two languages always have the same
     structure. Text may hold HTML; "{price}", "{additional}", "{documents}" and "{extra}" in it become
     the monthly price for the first legal entity, the monthly price for each further one, the
-    documents included across all of a customer's legal entities and the price of each further document, and "{discount}" and "{months}" the
-    introductory monthly discount on the first legal entity and the months it lasts (site.json),
-    "{intro}" the monthly price less that discount, and "{app}"
-    the address of the app in this page's language (strings.json).
+    documents included across all of a customer's legal entities and the price of each further document
+    (site.json), and "{app}" the address of the app in this page's language (strings.json).
 
     The buttons open the app, where a customer signs in, subscribes and enrols legal entities. They
     read cta.button, except the one on the price card (pricing.button).
 #}
 {%- set app = strings[lang or "en"].app %}
-{%- set intro = (site.price | int) - (site.discount | int) %}
-{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{additional}", site.additional) | replace("{discount}", site.discount) | replace("{months}", site.months) | replace("{intro}", intro) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
+{%- macro t(text) %}{{ text | replace("{price}", site.price) | replace("{additional}", site.additional) | replace("{documents}", site.documents) | replace("{extra}", site.extra) | replace("{app}", app) | safe }}{% endmacro %}
 <section class="hero">
     {%- if hero.badge %}
     <p class="soon-badge">{{ t(hero.badge) }}</p>
@@ -85,24 +82,11 @@ wide: true
         <h2 class="section-title">{{ t(pricing.title) }}</h2>
         <p class="section-lead">{{ t(pricing.lead) }}</p>
         <div class="price-card">
-            {#- With an introductory discount (site.discount) the card leads with the discounted price
-                and crosses out the full one. #}
-            {%- if site.discount %}
-            <p class="price-badge">{{ t(pricing.badge) }}</p>
-            {%- endif %}
             <div class="price">
                 <span class="price-currency">{{ t(pricing.currency) }}</span>
-                {%- if site.discount %}
-                <s class="price-was">{{ site.price }}</s>
-                <span class="price-amount">{{ intro }}</span>
-                {%- else %}
                 <span class="price-amount">{{ site.price }}</span>
-                {%- endif %}
             </div>
             <p class="price-unit">{{ t(pricing.unit) }}</p>
-            {%- if site.discount %}
-            <p class="price-then">{{ t(pricing.then) }}</p>
-            {%- endif %}
             <dl class="price-rows">
                 {%- for row in pricing.rows %}
                 <div>
