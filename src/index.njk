@@ -2,7 +2,7 @@
 layout: home.njk
 alternate: /ar/
 metaTitle: eInvoices.ae — UAE eInvoicing for Manager.io
-description: An extension for Manager.io accounting software that sends your invoices and credit notes as e-invoices under the UAE eInvoicing mandate. AED 99 per month for your first legal entity and AED 49 for each further one, with 100 documents a month included across all of them. Free to test in the sandbox.
+description: An extension for Manager.io accounting software that sends your invoices and credit notes as e-invoices under the UAE eInvoicing mandate. AED 99 per month for your first legal entity and AED 49 for each further one, with 100 invoices or credit notes a month included across all of them. Free to test in the sandbox.
 # The page itself is src/_includes/home.njk. The Arabic wording is in src/ar/index.njk: change both together.
 # The buttons open the app (`app` in src/_data/strings.json). Opened there, outside Manager, the app is
 # where a customer signs in, subscribes and enrols legal entities; sending is done in the extension
@@ -80,7 +80,7 @@ deadlines:
     that apply to you with the <a href="https://mof.gov.ae">Ministry of Finance</a>.
 pricing:
   title: Pricing
-  lead: One plan. {documents} documents a month are included, shared across all your legal entities.
+  lead: One plan. {documents} invoices or credit notes a month are included, shared across all your legal entities.
   badge: Save AED {discount} a month for {months} months
   currency: AED
   unit: per month for your first legal entity
@@ -88,9 +88,9 @@ pricing:
   rows:
     - label: Each further legal entity
       value: AED {additional} / month
-    - label: Documents included
+    - label: Invoices and credit notes included
       value: "{documents} / month"
-    - label: Each further document
+    - label: Each further invoice or credit note
       value: AED {extra}
   included:
     - Sending invoices and credit notes
@@ -142,11 +142,11 @@ faq:
         received through <a href="https://www.acubeapi.com">A-Cube</a>, an Accredited Service Provider
         on the Peppol network. You appoint A-Cube as your service provider in EmaraTax; you do not need
         a separate contract with it.
-    - question: Are there charges per document?
+    - question: Are there charges per invoice or credit note?
       answer: >-
-        The monthly price covers {documents} documents, shared across all your legal entities. Each
-        further document in that month is AED {extra}. Each invoice or credit note you send live counts as one
-        document. Test documents sent in the sandbox are not counted. There are no other fees.
+        The monthly price covers {documents} invoices or credit notes, shared across all your legal
+        entities. Each further one in that month is AED {extra}. Only those you send live are counted;
+        test e-invoices sent in the sandbox are not. There are no other fees.
     - question: Is there an introductory discount?
       answer: >-
         Yes. Your first legal entity is AED {discount} per month cheaper for your first {months}
@@ -156,7 +156,7 @@ faq:
         Each company that issues invoices under its own name and Tax Registration Number. If you keep
         the books of three companies in Manager, that is three legal entities: AED {price} per month for the
         first and AED {additional} per month for each of the other two. The
-        {documents} included documents are shared between them. A legal entity is identified by its TIN,
+        {documents} included invoices and credit notes are shared between them. A legal entity is identified by its TIN,
         and once enrolled it keeps its place on your subscription for 30 days before another can take it.
     - question: Do I need to change how I use Manager?
       answer: >-
